@@ -18,5 +18,5 @@
 * Click "Mutil" you can mutil choice wall in table ('mousedown and mouseover to use').
 * Click "submit" to find path from S to F.
 * Click "reset" to reload page.
-* Gray is wall, Blue is S, Red is F, Yellow is path.
+* Gray is wall, Blue is S, Red is F, Yellow is path, Green trace route.
 
