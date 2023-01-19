@@ -19,12 +19,14 @@ sq_ele.forEach((sq, idx) => {
       sq.classList.toggle("on");
       board[idx] = -board[idx];
     } else if (R === "F") {
+      if (S !== -1) sq_ele[S].classList.remove("start");
       sq.classList.remove("on");
       sq.classList.add("start");
       S = idx;
       board[idx] = 0;
       R = "W";
     } else if (R === "T") {
+      if (F !== -1) sq_ele[F].classList.remove("end");
       sq.classList.remove("on");
       sq.classList.add("end");
       F = idx;
@@ -45,19 +47,26 @@ t = document.getElementById("to");
 btn = document.getElementById("btn");
 
 f.addEventListener("click", () => {
-  if (S != -1) return;
   R = "F";
   mutilChoice = false;
 });
 
 t.addEventListener("click", () => {
-  if (F != -1) return;
   mutilChoice = false;
   R = "T";
 });
 
+const _clear = () => {
+  for (let i = 0; i < SZ_COL * SZ_ROW; i++) {
+    sq_ele[i].classList.remove("through");
+    sq_ele[i].classList.remove("now");
+    sq_ele[i].classList.remove("path");
+  }
+};
+
 btn.addEventListener("click", () => {
   R = "N";
+  _clear();
   BFS(board, S, F);
 });
 

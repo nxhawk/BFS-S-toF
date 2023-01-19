@@ -78,9 +78,7 @@ header{
   border: 0.5px solid #000;
 }
 
-#table .sq.on{
-  background-color: rgb(165, 161, 161);
-}
+
 
 #table .sq.now{
   background-color: rgb(143, 106, 6);
@@ -92,6 +90,10 @@ header{
 
 #table .sq.through{
   background-color: rgb(38, 219, 18);
+}
+
+#table .sq.on{
+  background-color: rgb(165, 161, 161);
 }
 
 #table .sq.start{
