@@ -84,12 +84,13 @@ header{
   background-color: rgb(143, 106, 6);
 }
 
-#table .sq.path{
-  background-color: yellow
-}
 
 #table .sq.through{
   background-color: rgb(38, 219, 18);
+}
+
+#table .sq.path{
+  background-color: yellow
 }
 
 #table .sq.on{

@@ -19,14 +19,14 @@ sq_ele.forEach((sq, idx) => {
       sq.classList.toggle("on");
       board[idx] = -board[idx];
     } else if (R === "F") {
-      if (S !== -1) sq_ele[S].classList.remove("start");
+      if (S !== -1) sq_ele[S].classList.remove("start"), (board[F] = -1);
       sq.classList.remove("on");
       sq.classList.add("start");
       S = idx;
       board[idx] = 0;
       R = "W";
     } else if (R === "T") {
-      if (F !== -1) sq_ele[F].classList.remove("end");
+      if (F !== -1) sq_ele[F].classList.remove("end"), (board[F] = -1);
       sq.classList.remove("on");
       sq.classList.add("end");
       F = idx;
@@ -65,6 +65,7 @@ const _clear = () => {
 };
 
 btn.addEventListener("click", () => {
+  if (F == -1 || S == -1) return;
   R = "N";
   _clear();
   BFS(board, S, F);
@@ -88,6 +89,7 @@ const _ok = (i, j, visit) => {
 };
 
 const _count = (S) => {
+  if (S < 0) return 0;
   if (prev[S] == -1) return 0;
   return _count(prev[S]) + 1;
 };
@@ -106,6 +108,7 @@ async function BFS(board, S, F) {
   let queue = [];
   queue.push(S);
   visit[S] = 1;
+  prev[S] = -1;
 
   while (queue.length > 0) {
     let sz = queue.length;
